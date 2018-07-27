@@ -2,7 +2,11 @@
   "name": "digital-daly-test-chat",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server/index.js",
+  "engines": {
+    "node": "10.5.0",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "start": "node src/server/index.js",
     "start:client": "parcel src/client/index.html --no-hmr",
