@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server/index.js",
     "start:client": "parcel src/client/index.html --no-hmr",
     "start:server": "nodemon",
     "build": "concurrently \"npm run build:js\" \"npm run build:css\"",
