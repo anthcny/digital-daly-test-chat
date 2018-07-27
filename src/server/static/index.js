@@ -30626,6 +30626,9 @@ exports.default = _vue2.default.component('chat', {
 				this.inputMsg && _autosize2.default.update(this.inputMsg);
 			});
 		},
+		sendByEnter: function sendByEnter(e) {
+			if (e.keyCode === 13) {}
+		},
 		logout: function logout() {
 			_core.core.logout();
 		}
@@ -30803,7 +30806,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60577' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54067' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

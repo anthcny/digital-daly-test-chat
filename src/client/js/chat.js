@@ -87,6 +87,11 @@ export default Vue.component('chat', {
 				this.inputMsg && autosize.update(this.inputMsg);
       });
 		},
+		sendByEnter(e) {
+			if (e.keyCode === 13) {
+        
+      }
+		},
 		logout() {
 			core.logout();
 		}

@@ -53,6 +53,9 @@ io.on('connection', function(socket){
 	logActiveCount();
 	socket.on('disconnect', (reason) => {
 		const ot = --activeUsers[socket.id].openTabs;
+		activeUsers[socket.id].loggedIn = false;
+		socket.broadcast.emit('user out', { user: getUser(socket) });
+		emitChangeActiveUser();
 		if (!ot)
 			delete activeUsers[socket.id];
 		

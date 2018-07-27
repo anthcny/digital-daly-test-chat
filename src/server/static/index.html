@@ -102,7 +102,7 @@
 							</div>
 							<div class="chat__input">
 								<div class="chat__input-msg">
-									<textarea v-model="inputMessage" name="message_input" id="message_input" rows="1"
+									<textarea v-on:keyup="sendByEnter" v-model="inputMessage" name="message_input" id="message_input" rows="1"
 										placeholder="Type your message..."></textarea>
 								</div>
 								<div class="chat__input-menu">
