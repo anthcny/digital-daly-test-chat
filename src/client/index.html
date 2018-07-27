@@ -6,92 +6,150 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>chat</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<link rel="stylesheet" href="scss/index.scss">
-	<script src="js/index.js"></script>
 </head>
 <body>
-	<div class="layout">
-		<div class="bg bg-2">
-				<div class="bg-overlay"></div>
-				<div class="bg-overlay-footer"></div>
-		</div>
-		<!-- ws: workspace -->
-		<div class="ws">
-			<header class="ws__header">
-				<nav class="chatnav">
-						<div class="chatnav__back-btn">
-						</div>
-						<div class="chatnav__title">CHAT NAME</div>
-						<div class="chatnav__menu-btn"></div>
-				</nav>
-			</header>
-			<main class="ws__main">
-				<div class="chat">
-					<div class="chat__dialog">
-						<div class="chat__dialog-head">
-					
-						</div>
-						<div class="chat__messages">
-							<div class="chat__message">
-								<div class="avatar av-1"></div>
-								<div class="username">@asdf</div>
-								<div class="msg-body">
-									Hey
-								</div>
-								<div class="msg-footer">
-									5 minutes ago
-								</div>
-							</div>
-							<div class="chat__message">
-								<div class="avatar av-none"></div>
-								<div class="username">@asdf</div>
-								<div class="msg-body">
-									Whats up Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-									Ipsam consequatur sed, tenetur voluptate veritatis dolorum tempora aliquid sequi delectus doloremque quia, fugit vitae corrupti, id animi molestias vero repellendus saepe?
-								</div>
-								<div class="msg-footer">
-										2 minutes ago
-								</div>
-							</div>
-							<div class="chat__message">
-								<div class="avatar av-3"></div>
-								<div class="username">@asdf</div>
-								<div class="msg-body">
-									ALALALALALLA
-								</div>
-								<div class="msg-footer">
-										1 minute ago
-								</div>
-							</div>
-							<div class="chat__message">
-								<div class="avatar av-2"></div>
-								<div class="username">@asdf</div>
-								<div class="msg-body">
-									Whats up Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-									Ipsam consequatur sed, tenetur voluptate veritatis dolorum tempora aliquid sequi delectus doloremque quia, fugit vitae corrupti, id animi molestias vero repellendus saepe?
-								</div>
-								<div class="msg-footer">
-										2 minutes ago
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="chat__input">
-						<div class="chat__input-msg">
-							<textarea name="message_input" id="message_input" rows="1"
-								placeholder="Type your message..."></textarea>
-						</div>
-						<div class="chat__input-menu">
-							<div>.&nbsp;&nbsp;.</div>
-							<button class="btn chat__send" type="button">Send</button>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
+	<div id="vue-app">
+		<router-view></router-view>
 	</div>
+	<!-- vue templete login -->
+	<script type="text/x-template" id="login-template">
+		<div class="layout">
+				<div class="bg bg-1">
+						<div class="bg-overlay"></div>
+						<div class="bg-overlay-footer"></div>
+				</div>
+				<div class="container-h-center">
+					<div></div>
+					<div id="login-page" class="center flex-col">
+						<header>
+							<div class="logo">
+									<div class="title"><h1>Chat</h1></div>
+							</div>
+						</header>
+						<main>
+							<form>
+								<div class="controls">
+									<div class="control">
+										<div class="control__label">USERNAME</div>
+										<div class="control__field">
+											<input v-model="username" type="text" name="username" id="username">
+										</div>
+									</div>
+									<div class="control">
+											<div class="control__label">PASSWORD</div>
+											<div class="control__field">
+												<input v-model="password" type="password" name="password" id="password">
+											</div>
+									</div>
+								</div>
+								<div class="actions">
+									<button @click="onLogin" type="submit" id="login-submit">
+											<span>Get started</span>
+											<!-- <i class="fas fa-play"></i> -->
+											<span>&#9658;</span>
+									</button>
+								</div>
+							</form>
+						</main>
+						<footer>
+							<div>
+									Not registered? <a href="#">Create Account</a>
+							</div>
+						</footer>
+					</div>
+					<div></div>
+				</div>
+			</div>
+	</script>
+	<!-- vue template chat -->
+	<script type="text/x-template" id="chat-template">
+		<div class="layout">
+				<div class="bg bg-2">
+						<div class="bg-overlay"></div>
+						<div class="bg-overlay-footer"></div>
+				</div>
+				<!-- ws: workspace -->
+				<div class="ws">
+					<header class="ws__header">
+						<nav class="chatnav">
+								<router-link to="/login">
+									<div class="chatnav__back-btn" id="btn_back_to_login">
+										</div>
+								</router-link>
+								
+								<div class="chatnav__title">CHAT NAME ({{activeUsers}})</div>
+								<div class="chatnav__menu-btn"></div>
+						</nav>
+					</header>
+					<main class="ws__main">
+						<div class="chat">
+							<div class="chat__dialog">
+								<div class="chat__dialog-head">
+							
+								</div>
+								<div class="chat__messages">
+									<div class="chat__message">
+										<div class="avatar av-1"></div>
+										<div class="username">@filip</div>
+										<div class="msg-body">
+											Hey
+										</div>
+										<div class="msg-footer">
+											5 minutes ago
+										</div>
+									</div>
+									<div class="chat__message">
+										<div class="avatar av-none"></div>
+										<div class="username">@noname</div>
+										<div class="msg-body">
+											Whats up Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+											Ipsam consequatur sed, tenetur voluptate veritatis dolorum tempora aliquid sequi delectus doloremque quia, fugit vitae corrupti, id animi molestias vero repellendus saepe?
+										</div>
+										<div class="msg-footer">
+												2 minutes ago
+										</div>
+									</div>
+									<div class="chat__message">
+										<div class="avatar av-3"></div>
+										<div class="username">@july</div>
+										<div class="msg-body">
+											ALALALALALLA
+										</div>
+										<div class="msg-footer">
+												1 minute ago
+										</div>
+									</div>
+									<div class="chat__message">
+										<div class="avatar av-2"></div>
+										<div class="username">@lorem</div>
+										<div class="msg-body">
+											Whats up Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+											Ipsam consequatur sed, tenetur voluptate veritatis dolorum tempora aliquid sequi delectus doloremque quia, fugit vitae corrupti, id animi molestias vero repellendus saepe?
+										</div>
+										<div class="msg-footer">
+												2 minutes ago
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="chat__input">
+								<div class="chat__input-msg">
+									<textarea name="message_input" id="message_input" rows="1"
+										placeholder="Type your message..."></textarea>
+								</div>
+								<div class="chat__input-menu">
+									<div>.&nbsp;&nbsp;.</div>
+									<button @click="sendMsg" class="btn chat__send" type="button">Send</button>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+	</script>
+
+	<script src="js/index.js"></script>
 </body>
 </html>

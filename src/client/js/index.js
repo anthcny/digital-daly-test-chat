@@ -1,5 +1,6 @@
-import main from './main';
+import 'hammerjs';
+import bootstrap from './main';
 
 document.addEventListener('DOMContentLoaded', function (e) {
-	main();
+	bootstrap();
 });

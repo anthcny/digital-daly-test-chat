@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>chat</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div id="vue-app">
+		<router-view></router-view>
+	</div>
+	<!-- vue templete login -->
+	<script type="text/x-template" id="login-template">
+		<div class="layout">
+				<div class="bg bg-1">
+						<div class="bg-overlay"></div>
+						<div class="bg-overlay-footer"></div>
+				</div>
+				<div class="container-h-center">
+					<div></div>
+					<div id="login-page" class="center flex-col">
+						<header>
+							<div class="logo">
+									<div class="title"><h1>Chat</h1></div>
+							</div>
+						</header>
+						<main>
+							<form>
+								<div class="controls">
+									<div class="control">
+										<div class="control__label">USERNAME</div>
+										<div class="control__field">
+											<input v-model="username" type="text" name="username" id="username">
+										</div>
+									</div>
+									<div class="control">
+											<div class="control__label">PASSWORD</div>
+											<div class="control__field">
+												<input v-model="password" type="password" name="password" id="password">
+											</div>
+									</div>
+								</div>
+								<div class="actions">
+									<button @click="onLogin" type="submit" id="login-submit">
+											<span>Get started</span>
+											<!-- <i class="fas fa-play"></i> -->
+											<span>&#9658;</span>
+									</button>
+								</div>
+							</form>
+						</main>
+						<footer>
+							<div>
+									Not registered? <a href="#">Create Account</a>
+							</div>
+						</footer>
+					</div>
+					<div></div>
+				</div>
+			</div>
+	</script>
+	<!-- vue template chat -->
+	<script type="text/x-template" id="chat-template">
+		<div class="layout">
+				<div class="bg bg-2">
+						<div class="bg-overlay"></div>
+						<div class="bg-overlay-footer"></div>
+				</div>
+				<!-- ws: workspace -->
+				<div class="ws">
+					<header class="ws__header">
+						<nav class="chatnav">
+								<div @click="logout" class="chatnav__back-btn" id="btn_back_to_login">
+									</div>
+								
+								<div class="chatnav__title">CHAT NAME ({{activeUsers}})</div>
+								<div class="chatnav__menu-btn"></div>
+						</nav>
+					</header>
+					<main class="ws__main">
+						<div class="chat">
+							<div class="chat__dialog">
+								<div class="chat__dialog-head">
+							
+								</div>
+								<div class="chat__messages">
+									<div v-for="msg of chatMessages">
+										<div class="chat__message">
+											<div class="avatar av-none"></div>
+											<div class="username">@{{msg.from}}</div>
+											<div class="msg-body">{{msg.body}}</div>
+											<div class="msg-footer">
+													<timeago :datetime="msg.at"></timeago>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="chat__input">
+								<div class="chat__input-msg">
+									<textarea v-model="inputMessage" name="message_input" id="message_input" rows="1"
+										placeholder="Type your message..."></textarea>
+								</div>
+								<div class="chat__input-menu">
+									<div>.&nbsp;&nbsp;.</div>
+									<button @click="sendMsg" class="btn chat__send" type="button">Send</button>
+								</div>
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+	</script>
+
+	<script src="socket.io/socket.io.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>

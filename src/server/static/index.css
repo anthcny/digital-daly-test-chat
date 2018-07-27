@@ -1,0 +1,338 @@
+@charset "UTF-8";
+.container-h-center {
+  display: flex;
+  flex-direction: row;
+  flex: 1; }
+  .container-h-center > div {
+    flex: auto; }
+  .container-h-center .center {
+    flex: 1 1 auto; }
+  @media screen and (max-width: 400px) {
+    .container-h-center .center {
+      flex: 1 1 300px; } }
+
+.flex-col {
+  display: flex;
+  flex-direction: column; }
+
+.btn {
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  border: none; }
+
+.btn:focus {
+  outline: none; }
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10; }
+
+.bg-1 {
+  background: url("bg-1.a756a0fc.png");
+  background-size: cover; }
+
+.bg-2 {
+  background: url("bg-2.80a51ac4.png");
+  background-size: cover; }
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-180deg, #FFBDB8 0%, rgba(255, 189, 184, 0) 100%); }
+
+.bg .bg-overlay {
+  z-index: -10; }
+
+.bg-overlay-footer {
+  height: 200px;
+  background-image: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -10; }
+
+.ws {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column; }
+  .ws__header {
+    height: 60px;
+    background-color: black;
+    color: white; }
+  .ws__main {
+    flex: 1; }
+
+#login-page {
+  max-width: 500px; }
+  #login-page header {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    #login-page header .logo {
+      background: url("chat-logo.7729e8fa.svg");
+      background-size: cover;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      justify-content: center; }
+      #login-page header .logo .title {
+        margin-top: auto; }
+        #login-page header .logo .title > h1 {
+          letter-spacing: 2px;
+          font-size: 2.2rem; }
+  #login-page main {
+    flex: 1.5;
+    background-color: white;
+    min-height: 180px; }
+    #login-page main form {
+      height: 100%;
+      display: flex;
+      flex-direction: column; }
+      #login-page main form .controls {
+        padding: 10px 30px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around; }
+        #login-page main form .controls .control {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+          padding-bottom: 5px; }
+          #login-page main form .controls .control__label {
+            color: #B49190;
+            letter-spacing: 2px;
+            font-size: .8rem; }
+          #login-page main form .controls .control__field {
+            margin-top: 10px; }
+            #login-page main form .controls .control__field input {
+              outline: none;
+              border: none;
+              width: 100%; }
+      #login-page main form .actions {
+        margin-top: auto;
+        height: 5rem;
+        padding: 0 30px;
+        background-color: #FFBDB8;
+        transition: background-color 1s; }
+        #login-page main form .actions button {
+          cursor: pointer;
+          padding: 0;
+          background-color: transparent;
+          border: none;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+        #login-page main form .actions button:focus {
+          outline: none; }
+        #login-page main form .actions.acted {
+          background-color: lightgreen; }
+        #login-page main form .actions.error {
+          background-color: red; }
+  #login-page footer {
+    min-height: 40px;
+    flex: .5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+    font-family: 'Helvetica Neue';
+    letter-spacing: 1px; }
+    #login-page footer a {
+      color: #FFBDB8; }
+
+.chat {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column; }
+  .chat__dialog {
+    flex: 1;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100px;
+    margin-bottom: 10px; }
+  .chat__messages {
+    flex: 1; }
+  .chat__message {
+    padding: 5px 0;
+    margin: 10px 0;
+    position: relative;
+    display: inline-block; }
+    .chat__message .avatar {
+      width: 45px;
+      height: 45px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      -moz-box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25);
+      -webkit-box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25);
+      box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25); }
+    .chat__message .username {
+      position: absolute;
+      left: 60px;
+      top: 2px;
+      font-weight: 200;
+      letter-spacing: 1px;
+      color: white; }
+    .chat__message .msg-body {
+      margin: 20px 0 0 20px;
+      padding: 20px 15px 15px 40px;
+      background-color: white;
+      line-height: 1.7rem;
+      -moz-box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25);
+      -webkit-box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25);
+      box-shadow: 10px 14px 14px -4px rgba(71, 71, 71, 0.25); }
+    .chat__message .msg-footer {
+      margin: 0 0 0 20px;
+      padding: 5px 15px 15px 40px;
+      background-color: white;
+      font-family: 'Helvetica Neue';
+      letter-spacing: 1px;
+      color: #FFBDB8;
+      font-weight: 100;
+      color: chocolate;
+      font-weight: 200;
+      font-size: .8rem;
+      -moz-box-shadow: 10px 14px 18px -4px rgba(71, 71, 71, 0.25);
+      -webkit-box-shadow: 10px 14px 18px -4px rgba(71, 71, 71, 0.25);
+      box-shadow: 10px 14px 18px -4px rgba(71, 71, 71, 0.25); }
+  .chat .av-1 {
+    background: url("av-1.2125dc43.png");
+    background-size: cover; }
+  .chat .av-2 {
+    background: url("av-2.53049efc.png");
+    background-size: cover; }
+  .chat .av-3 {
+    background: url("av-3.d9e64ac4.png");
+    background-size: cover; }
+  .chat .av-none {
+    background: url("av-none.928184fd.png");
+    background-size: cover;
+    border-radius: 50%; }
+  .chat__input {
+    min-height: 3.4rem;
+    max-height: 8.4rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px; }
+    .chat__input textarea {
+      resize: none;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      padding: 0;
+      font-weight: 100; }
+    .chat__input button.chat__send {
+      font-family: 'Helvetica Neue';
+      letter-spacing: 1px;
+      color: #FFBDB8;
+      font-weight: 100; }
+  .chat__input-msg {
+    flex: 1;
+    padding-left: 20px;
+    overflow-y: scroll; }
+  .chat__input-menu {
+    display: flex;
+    align-items: center;
+    padding: 0 10px; }
+    .chat__input-menu > div {
+      font-weight: 800;
+      padding-bottom: 8px; }
+    .chat__input-menu > * {
+      margin: 0 10px; }
+
+.chatnav {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center; }
+  .chatnav .chatnav__back-btn {
+    color: white; }
+  .chatnav__back-btn {
+    padding: 0 18px; }
+  .chatnav__back-btn::before {
+    content: "►";
+    display: inline-block;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg); }
+  .chatnav__title {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .chatnav__menu-btn {
+    padding: 0 18px; }
+  .chatnav__menu-btn::before {
+    content: ". .";
+    display: inline-block;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    font-weight: 800;
+    padding-bottom: 10px; }
+
+html, body {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-size: 14px;
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden; }
+
+.layout {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0; }
+
+#vue-app {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-width: 0; }

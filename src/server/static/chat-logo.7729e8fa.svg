@@ -1,0 +1,21 @@
+
+<svg width="398px" height="403px" viewBox="0 0 398 403" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-75.0%" y="-500.0%" width="250.0%" height="1100.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="4-1-Login" transform="translate(-176.000000, -150.000000)">
+            <g id="Mark" transform="translate(275.000000, 150.000000)">
+                <ellipse id="Shadow" fill="#000000" filter="url(#filter-1)" cx="100" cy="264" rx="100" ry="15"></ellipse>
+                <polygon id="Shape" fill="#000000" opacity="0.2" transform="translate(25.000000, 224.000000) rotate(-180.000000) translate(-25.000000, -224.000000) " points="0 199 50 249 0 249"></polygon>
+                <path d="M0,19.9920156 C0,8.95073028 8.94946575,0 20.0001277,0 L179.999872,0 C191.045638,0 200,8.95348043 200,19.9920156 L200,179.007984 C200,190.04927 191.050534,199 179.999872,199 L0,199 L0,19.9920156 Z" id="Shape" fill="#FFFFFF"></path>
+                <rect id="Rectangle" fill="#000000" x="40" y="111" width="60" height="16"></rect>
+                <rect id="Rectangle" fill="#000000" x="40" y="72" width="120" height="16"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -93,6 +93,9 @@
 				&.acted {
 					background-color: lightgreen;
 				}
+				&.error {
+					background-color: red;
+				}
 			}
 		}
 	}

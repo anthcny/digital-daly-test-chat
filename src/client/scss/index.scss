@@ -17,3 +17,7 @@ html, body {
 .layout {
 	@include full-size();
 }
+
+#vue-app {
+	@include full-size();
+}
